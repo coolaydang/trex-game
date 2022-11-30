@@ -79,9 +79,9 @@ function setup() {
 function draw() {
     background(000);
 
-    text('Score: '+score,500,50);
+    text('Score: '+score,width-100,50);
 
-    text('FrameRate: '+getFrameRate(),500,40);
+    text('FrameRate: '+getFrameRate(),width-100,40);
     if(gameState === 'play'){
         score = score + Math.round(getFrameRate()/60);
 
@@ -161,7 +161,7 @@ function spawnClouds(){//spawn clouds
 
         cloud.lifetime = 601;
 
-        cloud.y = Math.round(random(10,60));
+        cloud.y = Math.round(random(10,height*2/3));
         cloud.scale = Math.round(random(0.1,0.4)*100)/100;
 
         cloud.depth = trex.depth;
@@ -175,7 +175,7 @@ function spawnObstacles(){//spawn obs
     var obstacle;
 
     if(frameCount % 60 === 0){
-       obstacle = createSprite(width,165,10,40);
+       obstacle = createSprite(width,height-90,10,40);
        obstacle.velocityX = -(6 + score/100);
        obstacle.lifetime = 601;
        //obstacle.debug = true;
